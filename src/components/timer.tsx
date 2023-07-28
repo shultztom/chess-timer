@@ -65,8 +65,6 @@ export default function Timer() {
             await setTimer(newTimer);
             return
         }
-
-
     }
 
     const endTurn = async () => {
@@ -152,7 +150,7 @@ export default function Timer() {
                             <Select
                                 labelId="Game Time"
                                 id="game-time"
-                                value={`(${startTime} / 60)`}
+                                value={`${startTime / 60}`}
                                 onChange={handleTimeChange}
                                 disabled={isGameActive}
                             >
