@@ -1,11 +1,9 @@
-import {useState, useEffect, use} from "react";
+import {useState, useEffect} from "react";
 import {
     Button,
     Box,
     Grid,
-    Stack,
     Typography,
-    Divider,
     Select,
     MenuItem,
     FormLabel,
@@ -88,7 +86,7 @@ export default function Timer() {
         }
         await setActivePlayer(newActivePlayer);
 
-        toggleTurns(newActivePlayer);
+        await toggleTurns(newActivePlayer);
     }
 
     const handleTimeChange = (event: SelectChangeEvent) => {
@@ -154,7 +152,7 @@ export default function Timer() {
                             <Select
                                 labelId="Game Time"
                                 id="game-time"
-                                value={startTime / 60}
+                                value={`(${startTime} / 60)`}
                                 onChange={handleTimeChange}
                                 disabled={isGameActive}
                             >
@@ -171,7 +169,7 @@ export default function Timer() {
                             <Select
                                 labelId="Increment Time"
                                 id="increment-time"
-                                value={increment}
+                                value={`${increment}`}
                                 onChange={handleIncrementChange}
                                 disabled={isGameActive}
                             >
@@ -236,7 +234,7 @@ export default function Timer() {
                           alignItems="center"
                           justifyContent="center">
                         <Grid item xs={12}>
-                            <Typography variant='p'> Game Over!</Typography>
+                            <Typography variant='body1'> Game Over!</Typography>
                         </Grid>
                         <Grid item xs={12}>
                             <Button variant="contained" onClick={() => resetGame()}>Reset Game</Button>
